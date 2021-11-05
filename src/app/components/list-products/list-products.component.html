@@ -1,0 +1,17 @@
+<table class="table" *ngFor="let p of products">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">CATEGORY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ p.productId }}</th>
+        <td>{{ p.name }}</td>
+        <td>{{ p.productCategoryId }}</td>
+      </tr>
+
+    </tbody>
+  </table>
