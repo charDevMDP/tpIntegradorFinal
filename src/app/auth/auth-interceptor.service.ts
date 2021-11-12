@@ -26,6 +26,7 @@ export class AuthInterceptorService {
       })
     }
 
+    // la request que obtiene el interceptor se la para al handle
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
 

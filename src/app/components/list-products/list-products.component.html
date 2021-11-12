@@ -1,4 +1,17 @@
 <div class="py-5 mb-5">
+
+  <div class="container mb-3">
+    <select class="form-control" [(ngModel)]="seleccionado" (change)='Filtrar()'>
+      <option value="-1">Ver Todos</option>
+         <option *ngFor="let cat of categories" [value]="cat">
+           {{ cat }}
+         </option> 
+    </select>
+  </div>
+
+<div *ngIf="productsFilters.length > 0; else noProducts">
+
+
  <table class="table table-striped">
     <thead>
       <tr>
@@ -8,16 +21,26 @@
         <th scope="col">OPCIONES</th>
       </tr>
     </thead>
-    <tbody  *ngFor="let p of products">
+    <tbody  *ngFor="let p of this.productsFilters">
       <tr>
         <td scope="row">{{ p.productId }}</td>
         <td>{{ p.name }}</td>
         <td>{{ p.productCategoryId }}</td>
         <td>
-          <a class="btn btn-info" [routerLink]="['/product',p.productId]" routerLinkActive="router-link-active" >Editar</a>
+          <a class="btn btn-info" [routerLink]="['/product',p.productId]" routerLinkActive="router-link-active" >Ver</a>
         </td>
       </tr>
 
     </tbody>
   </table> 
+
+</div>
+
+<ng-template #noProducts>
+  <div class="text-center mt-3">
+    <h3>No se encontraron productos</h3>
+  </div>
+</ng-template>
+
+
 </div>

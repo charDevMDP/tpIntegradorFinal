@@ -31,10 +31,9 @@ export class AuthService {
     const obs = this.http.post(this.url+'/User/Login',user,httpOptions);
 
     obs.subscribe((response:any) => {
-      console.log(response)
+      
       this.token = response['token'];
       this.user = response['userDetails']
-      console.log(this.user);
       localStorage.setItem('token', this.token);
       this.isLogged = true;
       this.router.navigate([''])

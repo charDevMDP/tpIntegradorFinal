@@ -9,8 +9,8 @@ import { ProductsComponent } from './screens/products/products.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
-  { path: 'product/:id', component: ProductDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'products', component: ProductsComponent},
+  { path: 'product/:id', component: ProductDetailsComponent},
   { path: '**', redirectTo: '', component: LoginComponent}
 ];
 
