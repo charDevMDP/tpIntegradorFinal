@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ListProductsComponent,
     LoginFormComponent,
     NavbarComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

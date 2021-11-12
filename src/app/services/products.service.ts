@@ -1,3 +1,4 @@
+import { Product } from './../models/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -24,6 +25,9 @@ export class ProductsService {
     return this.http.get(this.url+'/Product/'+id)
   }
 
+  updateProduct(product:any){
+    return this.http.put(this.url+'/Product',product);
+  }
 
 
 }

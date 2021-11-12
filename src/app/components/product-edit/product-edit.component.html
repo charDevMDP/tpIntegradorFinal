@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5" >
+            <h5 class="card-title text-center mb-4 fw-light fs-5">Editar</h5>
+            <form [formGroup]="prodForm" (ngSubmit)="onSubmit()">
+
+              <div class="form-floating mb-2">
+                <label for="floatingInput">Name</label>
+                <input 
+                [(ngModel)]="product.name"
+                type="text" 
+                class="form-control" 
+                formControlName="name" 
+                id="floatingInput"
+                >
+              </div>
+
+              <div class="form-floating mb-3 mt-3">
+                  <label for="descrip">Descripcion</label>
+                <input 
+                type="text" 
+                [(ngModel)]="product.description"
+                class="form-control" 
+                formControlName="description" 
+                placeholder="Descripcion"
+                >
+              </div>
+              <div class="form-floating mb-2">
+                <label for="price">Precio</label>
+                <input 
+                [(ngModel)]="product.price"
+                type="number" 
+                class="form-control" 
+                formControlName="price" 
+                id="price"
+               
+                >
+              </div>
+
+              <div class="form-floating mb-3 mt-3">
+                  <label for="category">ID categoria</label>
+                <input 
+                [(ngModel)]="product.productCategoryId"
+                type="number" 
+                class="form-control" 
+                formControlName="productCategoryId" 
+                >
+              </div>
+               
+
+              <div class="d-grid">
+                <button class="btn btn-block btn-success btn-login text-uppercase fw-bold" type="submit" [disabled]='!prodForm.valid || loading'>ACTUALIZAR</button>
+              </div>
+
+             <div *ngIf="loading"class='mt-2 text-center'>
+                <span>Iniciando...</span>
+             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
