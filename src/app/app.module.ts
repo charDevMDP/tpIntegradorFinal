@@ -1,3 +1,5 @@
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { LoginComponent } from './screens/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,18 +9,23 @@ import { HomeComponent } from './screens/home/home.component';
 import { ProductsComponent } from './screens/products/products.component';
 import { ProductComponent } from './screens/product/product.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
-import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './components/auth/login/login.component'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     ProductsComponent,
     ProductComponent,
     ListProductsComponent,
-    LoginComponent
+    LoginFormComponent,
+    NavbarComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ 
+    { // necesario para que ande los interceptores
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true // indica que puede tenes multiples interceptores, import el orden
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

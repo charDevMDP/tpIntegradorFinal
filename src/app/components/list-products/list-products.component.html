@@ -1,17 +1,23 @@
-<table class="table" *ngFor="let p of products">
+<div class="py-5 mb-5">
+ <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">NAME</th>
         <th scope="col">CATEGORY</th>
+        <th scope="col">OPCIONES</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody  *ngFor="let p of products">
       <tr>
-        <th scope="row">{{ p.productId }}</th>
+        <td scope="row">{{ p.productId }}</td>
         <td>{{ p.name }}</td>
         <td>{{ p.productCategoryId }}</td>
+        <td>
+          <a class="btn btn-info" [routerLink]="['/product',p.productId]" routerLinkActive="router-link-active" >Editar</a>
+        </td>
       </tr>
 
     </tbody>
-  </table>
+  </table> 
+</div>
